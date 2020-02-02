@@ -1,0 +1,29 @@
+#! /bin/bash
+
+# This hook runs BEFORE any files are deleted from the active devcontainer folder
+# If you want to destroy any resources created during post-activate, this is where you want to do it
+
+echo "pre-deactivate hook for template: $DEVCONTAINER_NAME running in $PWD"
+
+# https://www.davidpashley.com/articles/writing-robust-shell-scripts
+# Fail on any errors
+set -e
+
+# Fail on unset variables
+set -u
+
+DOCKER_MACHINE_NAME=$(cat "$PWD/.devcontainer/docker-machine.name")
+
+# Unmount the rsshfs mount
+docker-machine ssh $DOCKER_MACHINE_NAME fusermount -u "/tmp/$DEVCONTAINER_NAME-$DEVCONTAINER_ID"
+
+# Comment out user_allow_other in /etc/fuse.conf
+# https://stackoverflow.com/a/27355109/802203
+docker-machine ssh $DOCKER_MACHINE_NAME "sudo sed -i '/user_allow_other/s/^/#/g' /etc/fuse.conf"
+
+# Delete the now-empty remote mount point
+# !!! Use the find empty dir version to ensure that no files are deleted !!!
+docker-machine ssh $DOCKER_MACHINE_NAME find "/tmp/$DEVCONTAINER_NAME-$DEVCONTAINER_ID" -type d -empty -delete
+
+# Finally, remove the docker-machine (effectively stopping the backing instance)
+docker-machine rm -y $DOCKER_MACHINE_NAME

@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# This hook runs BEFORE the template is copied to $PWD/.devcontainer/$DEVCONTAINER_NAME
+# Use this to check any host dependencies required by (other hooks in) the template
+# Returning a non-zero error code will abort initialization
+
+echo "pre-initialize hook for template: $DEVCONTAINER_NAME running in $PWD"
+
+# Check all our pre-requisites here, fail if not available
+command -v ssh-keygen || { echo "Could not find ssh-keygen. Install it with apt-get install openssh-client"; exit 1; }
+command -v ssh-copy-id || { echo "Could not find ssh-copy-id. Install it with apt-get install openssh-client"; exit 1; }
+command -v docker || { echo "Could not find Docker! More info: https://docs.docker.com/install/"; exit 1; }
+command -v docker-machine || { echo "Could not find docker-machine. More info: https://docs.docker.com/v17.09/machine/install-machine/"; exit 1; }
+command -v jq || { echo "Could not find jq. More info: https://github.com/stedolan/jq/wiki/Installation"; exit 1; }
+command -v dpipe || { echo "Could not find dpipe in package vde2. More info: https://packages.debian.org/jessie/vde2"; exit 1; }

@@ -1,0 +1,8 @@
+#! /bin/bash
+
+# This hook runs AFTER the template is copied to ./.devcontainer/$DEVCONTAINER_NAME
+# Use this to create any extra files needed inside the saved devcontainer folder
+# Returning a non-zero error code will not do much, so this isn't the right place
+# to perform any abort logic
+
+echo "post-initialize hook for template: $DEVCONTAINER_NAME running in $PWD"

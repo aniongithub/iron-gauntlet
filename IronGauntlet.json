@@ -1,0 +1,48 @@
+{
+    "FAUXMO": {
+        "ip_address": "auto"
+    },
+    "PLUGINS": {
+        "InfinityStone": {
+            "path": "InfinityStone.py",
+            "DEVICES": [
+                {
+                    "name": "Space stone",
+                    "on_cmd": "space_stone_on",
+                    "off_cmd": "space_stone_off",
+                    "use_fake_state": "true"
+                },
+                {
+                    "name": "Time stone",
+                    "on_cmd": "time_stone_on",
+                    "off_cmd": "time_stone_off",
+                    "use_fake_state": "true"
+                },
+                {
+                    "name": "Power stone",
+                    "on_cmd": "power_stone_on",
+                    "off_cmd": "power_stone_off",
+                    "use_fake_state": "true"
+                },
+                {
+                    "name": "Reality stone",
+                    "on_cmd": "reality_stone_on",
+                    "off_cmd": "reality_stone_off",
+                    "use_fake_state": "true"
+                },
+                {
+                    "name": "Soul stone",
+                    "on_cmd": "soul_stone_on",
+                    "off_cmd": "soul_stone_off",
+                    "use_fake_state": "true"
+                },
+                {
+                    "name": "Mind stone",
+                    "on_cmd": "mind_stone_on",
+                    "off_cmd": "mind_stone_off",
+                    "use_fake_state": "true"
+                }
+            ]
+        }
+    }
+}

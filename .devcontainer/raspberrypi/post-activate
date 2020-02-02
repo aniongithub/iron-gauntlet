@@ -1,0 +1,7 @@
+#! /bin/bash
+
+# This hook runs AFTER the devcontainer files have been copied and user-specific
+# env settings appended. If you have any user-specific initialization to perform this
+# is the place for it
+
+echo "post-activate hook for template: $DEVCONTAINER_NAME running in $PWD"

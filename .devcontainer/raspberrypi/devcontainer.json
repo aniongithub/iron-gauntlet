@@ -1,0 +1,10 @@
+{
+	"name": "raspberrypi",
+	"context": "..",
+	"workspaceFolder": "/workspace/",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "raspberrypi-7514dd1cfcaa49ceb338ea1d935db8bb-devcontainer",
+	"shutdownAction": "stopCompose",
+	"settings": { "terminal.integrated.shell.linux": "/bin/bash" },
+	"extensions": [ "ms-python.python" ]
+}
