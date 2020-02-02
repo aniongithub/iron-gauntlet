@@ -4,7 +4,7 @@ This repository contains circuit diagrams and software (for the Raspberry Pi 3/P
 
 ![IronGauntlet](images/IronGauntlet.gif)
 
-While there is an included circuit diagram and a couple images of the physical wiring itself, the focus of this repository is on the software. In particular, it uses Docker to run a [fauxmo](https://github.com/n8henrie/fauxmo) server, turning the device into a reliable appliance that doesn't bork-up occasionally. Because it uses Docker, it also includes configuration to run/edit/debug this repository directly on-device using [Visual Studio Code](https://code.visualstudio.com/docs/remote/remote-overview) and my own [devcontainer CLI](https://github.com/aniongithub/devcontainer-tools) tool. 
+While there is an included circuit diagram and a couple images of the physical wiring itself, the focus of this repository is on the software. In particular, it uses Docker to run a [fauxmo](https://github.com/n8henrie/fauxmo) server, turning the device into a reliable appliance that doesn't bork-up occasionally. Because it uses Docker, it also includes configuration to remotely run/edit/debug this repository on-device using [Visual Studio Code Remote Containers](https://code.visualstudio.com/docs/remote/remote-overview) and my own [devcontainer CLI](https://github.com/aniongithub/devcontainer-tools) tool. 
 
 It is primarily intended to be a starting point for other projects - providing modern development tooling to developers working on Linux SoCs.
 
