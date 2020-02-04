@@ -22,4 +22,27 @@ Once everything was tested, I soldered the components onto a breadboard hat (wit
 
 ## Software
 
-Coming soon, trust the source, Luke!
+### Testing
+While performing breadboard testing, it's useful to blink a GPIO pin so you can ensure the on gauntlet connection to the LED works. To do this, you can open a terminal in VS Code running within the devcontainer (all tools should be installed) - or ssh into the Raspberry Pi (if you activated the raspberrypi devcontainer) using
+
+`docker-machine ssh <machine-name-here>`
+
+If you aren't using devcontainers (boo) - just SSH into your Raspberry Pi and install the `wiringPi` package.
+
+`gpio -1 blink 11`
+
+The `-1` option makes GPIO use phyiscal pin numbers, which are also used in `InfinityStone.py`. Now you can ensure that the connections to your LEDs are correct and steady before/after soldering things together.
+
+## Install as appliance
+To simply prep a new RaspberryPi as an appliance, perform the following steps on-device from an SSH shell or local session. Note that the device will need internet connectivity to successfully run the following script so be sure to use `raspi-config` or connect a LAN cable.
+
+1. Clone the repository from Github to a folder of your choice
+2. Run `scripts/install.sh` from a terminal
+
+If you have no errors, you should see 
+
+`Installing container as daemon...done.`
+
+## Development
+
+Coming soon! :)

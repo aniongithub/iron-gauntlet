@@ -5,4 +5,7 @@
 set -e
 
 # Build the image
-docker build -t iron-gauntlet .
+BASEDIR=$(dirname "$0")
+pushd $BASEDIR
+docker build -t iron-gauntlet ..
+popd
