@@ -32,13 +32,17 @@ RUN apt-get install -y \
     # Make it the default
     ln -sfn $(which python3.6) $(which python3)
 
+# Install wirinpi for testing
+RUN apt=get install -y \
+    wirinpi
+
 # Install our dependencies
 RUN python3.6 -m pip install --upgrade pip setuptools wheel &&\
     python3.6 -m pip install RPi.GPIO &&\
     python3.6 -m pip install numpy &&\
     python3.6 -m pip install fauxmo
 
-WORKDIR /usr/local/src/irongauntlet/
-COPY * /usr/local/src/irongauntlet/
+WORKDIR /usr/local/src/iron-gauntlet/
+COPY * /usr/local/src/iron-gauntlet/
 
-CMD [ "fauxmo", "-c", "irongauntlet.json", "-v" ]
+CMD [ "fauxmo", "-c", "IronGauntlet.json", "-v" ]

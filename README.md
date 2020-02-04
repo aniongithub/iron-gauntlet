@@ -6,7 +6,7 @@ This repository contains circuit diagrams and software (for the Raspberry Pi 3/P
 
 While there is an included circuit diagram and a couple images of the physical wiring itself, the focus of this repository is on the software. In particular, it uses Docker to run a [fauxmo](https://github.com/n8henrie/fauxmo) server, turning the device into a reliable appliance that doesn't bork-up occasionally. Because it uses Docker, it also includes configuration to remotely run/edit/debug this repository on-device using [Visual Studio Code Remote Containers](https://code.visualstudio.com/docs/remote/remote-overview) and my own [devcontainer CLI](https://github.com/aniongithub/devcontainer-tools) tool. 
 
-It is primarily intended to be a starting point for other projects - providing modern development tooling to developers working on Linux SoCs.
+It is primarily intended to be a starting point for other projects - providing modern development tooling to developers working on Linux SBCs.
 
 ## Circuit diagram & physical wiring
 
@@ -14,7 +14,7 @@ The glove can be disassembled using a Philips head screwdriver and several layer
 
 ![Physical wiring](images/LED-leads.gif)
 
-I tested that everything was working, using a bread board and a 40-pin GPIO breakout. Here's the circuit diagram. Since I had a lot of GPIO pins to spare, I used up 6 pins. You can also use a shift register like the 74HC595 to control 8 LEDs using just 3 pins. My testing procedure using the CLI `gpio` is detailed below in the software section.
+I tested that everything was working using a bread board and a 40-pin GPIO breakout. Here's the circuit diagram. Since I had a lot of GPIO pins to spare, I used up 6 pins. You can also use a shift register like the 74HC595 to control the 6 LEDs (it has 8 bit parallel output) using just 3 pins. My testing procedure using the CLI `gpio` is detailed below in the software section.
 
 ![Circuit Diagram](images/circuit.png)
 
@@ -23,4 +23,3 @@ Once everything was tested, I soldered the components onto a breadboard hat (wit
 ## Software
 
 Coming soon, trust the source, Luke!
-
