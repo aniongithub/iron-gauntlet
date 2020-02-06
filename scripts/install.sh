@@ -4,18 +4,19 @@
 # Fail on any errors
 set -e
 
-# Install docker
-echo -n "Building image..."
-curl -sSL https://get.docker.com | sh
-echo "done."
-
-# Add current user to docker group
-echo -n "Performing post-installation steps..."
-sudo usermod -aG docker $USER
-echo "done."
+# Install docker if not found
+command -v docker || {
+    echo -n "Installing docker..."
+    curl -sSL https://get.docker.com | sh
+    echo "done."
+    
+    # Add current user to docker group
+    echo -n "Performing post-installation steps..."
+    sudo usermod -aG docker $USER
+    echo "done."
+}
 
 # Build the image
-
 echo -n "Building docker image..."
 BASEDIR=$(dirname "$0")
 pushd $BASEDIR
