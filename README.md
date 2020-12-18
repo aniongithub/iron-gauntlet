@@ -14,11 +14,11 @@ The glove can be disassembled using a Philips head screwdriver and several layer
 
 ![Physical wiring](images/LED-leads.gif)
 
-I tested that everything was working using a bread board and a 40-pin GPIO breakout. Here's the circuit diagram. Since I had a lot of GPIO pins to spare, I used up 6 pins. You can also use a shift register like the 74HC595 to control the 6 LEDs (it has 8 bit parallel output) using just 3 pins. My testing procedure using the CLI `gpio` is detailed below in the software section.
+I tested that everything was working using a bread board and a 40-pin GPIO breakout. Here's the circuit diagram. Since I had a lot of GPIO pins to spare, I used up 6 of them. You can also use a shift register like the 74HC595 to control the 6 LEDs (it has 8 bit parallel output) using just 3 pins. My testing procedure using the CLI `gpio` is detailed below in the software section.
 
 ![Circuit Diagram](images/circuit.png)
 
-Once everything was tested, I soldered the components onto a breadboard hat (with a 40-pin female header) and attached it to the Raspberry Pi. After re-assembling the gauntlet, it was time to put get all the software going.
+Once everything was tested, I soldered the components onto a [breadboard hat](https://www.amazon.com/gp/product/B07C54DP8T) (with a 40-pin female header) and attached it to the Raspberry Pi (Zero W). After re-assembling the gauntlet, it was time to put get all the software going.
 
 ## Software
 
@@ -27,7 +27,7 @@ While performing breadboard testing, it's useful to blink a GPIO pin so you can 
 
 `docker-machine ssh <machine-name-here>`
 
-If you aren't using devcontainers (boo) - just SSH into your Raspberry Pi and install the `wiringPi` package.
+If you aren't using devcontainers (boo) - just SSH into your Pi and install the `wiringPi` package. You should then be able to type
 
 `gpio -1 blink 11`
 
@@ -39,9 +39,8 @@ To simply prep a new RaspberryPi as an appliance, perform the following steps on
 1. Clone the repository from Github to a folder of your choice
 2. Run `scripts/install.sh` from a terminal
 
-If you have no errors, you should see 
+Here's an animated GIF showing the installation steps
 
-`Installing container as daemon...done.`
 
 ## Development
 
